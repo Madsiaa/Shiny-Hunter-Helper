@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    overflow-x: hidden;
+}
+
+/*--------Nawigacja--------*/
+
+nav {
+    width: 100vw;
+    background-color: rgb(31, 92, 171);
+}
+
+nav ul {
+    margin-left: 10px;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    margin: 30px 20px;
+    text-decoration: none;
+    color: rgb(255, 204, 0);
+    font-size: 1.3em;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+nav ul li:hover {
+    display: block;
+    text-shadow: 3px 3px 3px rgb(213, 161, 0);
+    background-color: rgb(17, 61, 142);
+    transition: 0.2s;
+}
+
+/*----------Sekcja główna----------*/
+
+main {
+    margin: 20px auto;
+    width: 80vw;
+    height: 100vh;
+    border: solid #aaa 1px;
+    border-radius: 10%;
+    box-shadow: 10px 5px 5px #aaa;
+}
+
+h1 {
+    text-align: center;
+    padding: 30px 0;
+}
+
+/*---------------Stopka------------*/
+
+footer {
+    width: 100vw;
+    background-color: rgb(31, 92, 171);
+}
+
+footer p {
+    padding: 15px 0;
+    text-align: center;
+    color: rgb(255, 204, 0);
+}
