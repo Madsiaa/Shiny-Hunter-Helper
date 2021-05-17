@@ -1,44 +1,98 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>SHH - Pokédex</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
+    
     <body>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-        <script>
-            // Your web apps Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyAkM5lthvM38xTtYIaogCHNdq6xWQVqV1E",
-                authDomain: "shiny-hunter-helper.firebaseapp.com",
-                projectId: "shiny-hunter-helper",
-                storageBucket: "shiny-hunter-helper.appspot.com",
-                messagingSenderId: "200612887857",
-                appId: "1:200612887857:web:797fed897d169e57154410"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-        </script>
-
         <nav>
-            <ul>
-                <li><a href="index.html">Strona główna</a></li>
-                <li><a href="pokedex.html" class="active">Pokédex</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <div class="main-content">
+                        <li><a href="index.html">Strona główna</a></li>
+                        <li><a href="pokedex.html" class="active">Pokédex</a></li>
+                    </div>
+                    <div class="account">
+                        <li><a href="#">Moje konto</a></li>
+                        <li><a href="#" id="login">Zaloguj się</a></li>
+                        <li><a href="#" id="signup">Zarejestruj się</a></li>
+                        <li><a href="#" id="logout">Wyloguj</a></li>
+                    </div>
+                </ul>
+            </nav>
         </nav>
+
+        <!-- Sign up -->
+        <div class="signup-container">
+            <div class="signup-wrapper">
+                <h3>Zarejestruj się</h3>
+                <form id="signup-form">
+                    <div class="input-field">
+                        <label for="signup-email">Wpisz adres email:</label>
+                        <input type="email" id="signup-email" required/>
+                    </div>
+                    <div class="input-field">
+                        <label for="signup-password">Wpisz hasło:</label>
+                        <input type="password" id="signup-password" required/>
+                    </div>
+                <button>Zarejestruj</button>
+                </form>
+            </div>
+            <span class="hide">X</span>
+        </div>
+
+        <!-- Log in -->
+        <div class="login-container">
+            <div class="login-wrapper">
+                <h3>Zaloguj się</h3>
+                <form id="login-form">
+                    <div class="input-field">
+                        <label for="login-email">Wpisz adres email:</label>
+                        <input type="email" id="login-email" required/>
+                    </div>
+                    <div class="input-field">
+                        <label for="login-password">Wpisz hasło:</label>
+                        <input type="password" id="login-password" required/>
+                    </div>
+                    <button>Zaloguj</button>
+                </form>
+            </div>
+            <span class="hide">X</span>
+        </div>
+
+        <!-- Account details 
+        <div>
+            <div>
+                <h4>Account details</h4><br />
+                <div class="account-details"></div>
+            </div>
+        </div>-->
 
         <main>
             <h1>Pokédex</h1>
+            <button id="refreshDB">Generuj</button>
+            <ul id="pokedex-list"></ul>
         </main>
 
         <footer>
             <p>Copyright &copy; 2021. Wszystkie prawa zastrzeżone.</p>
         </footer>
         
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/8.3.3/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/8.3.3/firebase-auth.js"></script>
+        <script defer src="/__/firebase/8.3.3/firebase-firestore.js"></script>
+        <!-- initialize the SDK after all desired features are loaded, set useEmulator to false
+         to avoid connecting the SDK to running emulators.-->
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/index.js"></script>
+        <script src="scripts/db.js"></script>
     </body>
 </html>
