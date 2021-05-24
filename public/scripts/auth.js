@@ -5,7 +5,6 @@ singupForm.addEventListener("submit", (e) => {
 
     const email = document.querySelector("form#signup-form input[id='signup-email']").value;
     const password = document.querySelector("form#signup-form input[id='signup-password']").value;
-    console.log("Pobranie email i hasła: " + email, password);
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
         var user = userCredential.user;
@@ -25,13 +24,10 @@ loginForm.addEventListener("submit", (e) => {
 
     const email = document.querySelector("form#login-form input[id='login-email']").value;
     const password = document.querySelector("form#login-form input[id='login-password']").value;
-    console.log(firebase);
-    console.log(e);
 
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
         var user = userCredential.user;
         alert("Zalogowano!");
-        console.log(firebase);
         loginForm.reset();
       })
       .catch((error) => {
@@ -49,3 +45,22 @@ logout.addEventListener("click", (e) => {
         alert("Wylogowano!");
     });
 });
+
+//STATUS LISTENER
+window.onload = CheckStatus;
+function CheckStatus(){
+    firebase.auth().onAuthStateChanged(user => {
+        console.log(user);
+        if(user){
+            document.getElementById("login").style.display = "none";
+            document.getElementById("signup").style.display = "none";
+            document.getElementById("myAccount").style.display = "block";
+            document.getElementById("logout").style.display = "block";
+        } else {
+            document.getElementById("myAccount").style.display = "none";
+            document.getElementById("logout").style.display = "none";
+            document.getElementById("login").style.display = "block";
+            document.getElementById("signup").style.display = "block";
+        }
+    });
+}

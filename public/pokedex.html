@@ -4,27 +4,26 @@
         <title>SHH - Pokédex</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
     </head>
     
     <body>
         <nav>
-            <nav>
-                <ul>
-                    <div class="main-content">
-                        <li><a href="index.html">Strona główna</a></li>
-                        <li><a href="pokedex.html" class="active">Pokédex</a></li>
-                    </div>
-                    <div class="account">
-                        <li><a href="#">Moje konto</a></li>
-                        <li><a href="#" id="login">Zaloguj się</a></li>
-                        <li><a href="#" id="signup">Zarejestruj się</a></li>
-                        <li><a href="#" id="logout">Wyloguj</a></li>
-                    </div>
-                </ul>
-            </nav>
+            <ul>
+                <div class="main-content">
+                    <li><a href="index.html" class="active">Strona główna</a></li>
+                    <li><a href="pokedex.html">Pokédex</a></li>
+                </div>
+                <div class="account">
+                    <li><a href="#" id="myAccount">Moje konto</a></li>
+                    <li><a href="#" id="login">Zaloguj się</a></li>
+                    <li><a href="#" id="signup">Zarejestruj się</a></li>
+                    <li><a href="#" id="logout">Wyloguj</a></li>
+                </div>
+            </ul>
         </nav>
 
         <!-- Sign up -->
@@ -74,9 +73,24 @@
         </div>-->
 
         <main>
-            <h1>Pokédex</h1>
-            <button id="refreshDB">Generuj</button>
-            <ul id="pokedex-list"></ul>
+            <img class="pokedexImg" src="/img/pokedex.png" alt="SHH Pokedex logo"> <!--https://fontmeme.com/pokemon-font/-->
+            <button id="refreshDB">Generuj listę</button>
+            <table id="pokedex">
+                <thead>
+                    <tr>
+                        <td class="number">Numer</td>
+                        <td class="image">Obrazek</td>
+                        <td class="name">Nazwa</td>
+                        <td class="type1">Typ 1</td>
+                        <td class="type2">Typ 2</td>
+                        <td class="region">Region</td>
+                        <td class="button-container"></td>
+                    </tr>
+                </thead>
+                <tbody id="pokedex-table">
+                    
+                </tbody>
+            </table>
         </main>
 
         <footer>

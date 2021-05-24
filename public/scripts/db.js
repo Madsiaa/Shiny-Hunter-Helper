@@ -1,29 +1,33 @@
-//CREATE ELEMENT AND RENDER POKEDEX
-const pokedexList = document.querySelector("#pokedex-list");
-function renderPokedex(doc){
-    console.log("Renderuję...");
-    let li = document.createElement("li");
-    let id = document.createElement("span");
-    let name = document.createElement("span");
-    let type1 = document.createElement("span");
-    let type2 = document.createElement("span");
-    let region = document.createElement("span");
+//CREATE & RENDER POKEDEX
+const pokedexTable = document.querySelector("#pokedex-table");
+function renderPokemonPokedex(doc){
+    let tr = document.createElement("tr");
+    let id = document.createElement("td");
+    let image = document.createElement("td");
+    let name = document.createElement("td");
+    let type1 = document.createElement("td");
+    let type2 = document.createElement("td");
+    let region = document.createElement("td");
+    let button = document.createElement("td");
 
-    li.setAttribute('data-id', doc.id);
-    id.textContent = doc.data().ID;
-    name.textContent = doc.data().name;
-    type1.textContent = doc.data().types[0];
-    type2.textContent = doc.data().types[1];
-    region.textContent = doc.data().generation;
+    tr.setAttribute('data-id', doc.id);
+    id.textContent      = doc.data().ID;
+    image.innerHTML     = '<img class="pokedex-image" src="/img/pokemonSprite/'+doc.data().image+'" alt="pokemon image">';
+    name.textContent    = doc.data().name;
+    type1.textContent   = doc.data().types[0];
+    type2.textContent   = doc.data().types[1];
+    region.textContent  = doc.data().generation;
+    button.innerHTML    = '<button>Dodaj do huntingu</button><button>Szczegóły pokemona</button>';
 
-    li.appendChild(id);
-    li.appendChild(name);
-    li.appendChild(type1);
-    li.appendChild(type2);
-    li.appendChild(region);
+    tr.appendChild(id);
+    tr.appendChild(image);
+    tr.appendChild(name);
+    tr.appendChild(type1);
+    tr.appendChild(type2);
+    tr.appendChild(region);
+    tr.appendChild(button);
 
-    pokedexList.appendChild(li);
-    console.log("Renderowanie zakończone");
+    pokedexTable.appendChild(tr);
 }
 
 //GET DATA
@@ -32,12 +36,8 @@ refresh.addEventListener("click", (e) => {
     e.preventDefault();
 
     firebase.firestore().collection("pokedex").get().then((querySnapshot) => {
-        console.log("Pobieranie danych");
         querySnapshot.forEach((doc) => {
-            console.log(doc.id, "=>", doc.data());
-            //console.log(doc.data());
-            renderPokedex(doc);
+            renderPokemonPokedex(doc);
         });
-    console.log("Dane zostały pobrane");
-  });
-})
+    });
+});
