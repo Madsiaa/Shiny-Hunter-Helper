@@ -30,7 +30,7 @@ function renderPokemonPokedex(doc){
     pokedexTable.appendChild(tr);
 }
 
-//GET DATA
+//GET POKEMON DATA
 const refresh = document.querySelector('#refreshDB');
 refresh.addEventListener("click", (e) => {
     e.preventDefault();
@@ -40,4 +40,10 @@ refresh.addEventListener("click", (e) => {
             renderPokemonPokedex(doc);
         });
     });
+});
+
+//ADD POKEMON TO HUNTING
+const confirmAndAdd = document.querySelector("#addPokemonButton");
+confirmAndAdd.addEventListener("click", () => {
+    let pokemon = document.querySelector("#pokemons-select").value;
 });

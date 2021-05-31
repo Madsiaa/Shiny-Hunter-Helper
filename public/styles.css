@@ -37,7 +37,7 @@ nav ul li a {
     font-family: 'Oswald', sans-serif;
 }
 
-.active {
+a.active {
     text-decoration: underline;
 }
 
@@ -56,7 +56,6 @@ nav ul li:hover {
 }
 
 .signup-wrapper, .login-wrapper {
-    margin: 15px 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,6 +66,8 @@ nav ul li:hover {
 
 .signup-wrapper h3, .login-wrapper h3 {
     font-family: 'Oswald', sans-serif;
+    line-height: 1.8em;
+    font-size: 1.4em;
 }
 
 form div{
@@ -92,8 +93,8 @@ form button:hover {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 37%;
-    height: 26%;
+    width: 33%;
+    height: 28%;
     border: rgb(31, 92, 171) solid 2px;
 }
 
@@ -117,7 +118,7 @@ form button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 65%;
+    width: 70%;
     height: 50%;
 }
 
@@ -125,13 +126,18 @@ form button:hover {
 
 main {
     margin: 50px auto;
-    padding: 10px 45px;
+    padding: 10px 80px;
     width: 80vw;
     height: 100vh;
     border: solid #aaa 1px;
     border-radius: 10%;
     box-shadow: 10px 5px 5px #aaa;
     font-size: 1.2em;
+    line-height: 1.6em;
+}
+
+h2 {
+    line-height: 1.6em;
 }
 
 img.logo {
@@ -146,12 +152,19 @@ img.pokedexImg {
     max-height: 100px;
 }
 
+img.my-account-img {
+    display: block;
+    margin: 50px auto;
+    max-width: 65%;
+}
+
 button#refreshDB {
     display: block;
     margin: 0 auto;
     background-color: rgb(31, 92, 171);
     padding: 10px 15px;
     border: none;
+    border-radius: 5px;
     font-size: 16px;
     color: rgb(255, 204, 0);
     cursor: pointer;
@@ -183,6 +196,104 @@ button#refreshDB {
 .pokedex-image {
     width: 120px;
     height: 120px;
+}
+
+/*------------Moje konto-----------*/
+
+div.button-wrapper {
+    text-align: center;
+}
+
+button#add-new-pokemon, button#account-settings {
+    display: inline-block;
+    background-color: rgb(31, 92, 171);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: rgb(255, 204, 0);
+    cursor: pointer;
+}
+
+button#add-new-pokemon {
+    margin-right: 10px;
+}
+
+/*Sekcja dodawania Pokemona i ustawień*/
+
+.new-pokemon-container, .account-settings-container {
+    display: none;
+    background-color: rgb(218, 218, 218);
+}
+
+.new-pokekon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 74%;
+}
+
+.account-settings-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 79%;
+    height: 40%;
+}
+
+.new-pokekon-container.active h3 {
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.8em;
+    font-size: 1.4em;
+}
+
+.account-settings-container.active h3 {
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.8em;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.new-pokemon-container.active {
+    display: block;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 30%;
+    border: rgb(31, 92, 171) solid 2px;
+}
+
+.account-settings-container.active {
+    display: block;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 25%;
+    border: rgb(31, 92, 171) solid 2px;
+}
+
+.new-pokemon-container span, 
+.account-settings-container span {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    transform: translate(50%, -50%);
+    font-size: 20px;
+    background-color: #fff;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 /*---------------Stopka------------*/

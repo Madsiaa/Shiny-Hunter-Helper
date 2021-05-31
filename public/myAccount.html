@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SHH - Moje konto</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <div class="main-content">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="pokedex.html">Pokédex</a></li>
+                </div>
+                <div class="account">
+                    <li><a href="myAccount.html" id="myAccount" class="active">Moje konto</a></li>
+                    <li><a href="#" id="login">Zaloguj się</a></li>
+                    <li><a href="#" id="signup">Zarejestruj się</a></li>
+                    <li><a href="#" id="logout">Wyloguj</a></li>
+                </div>
+            </ul>
+        </nav>
+
+        <!-- Sign up -->
+        <div class="signup-container">
+            <div class="signup-wrapper">
+                <h3>Zarejestruj się</h3>
+                <form id="signup-form">
+                    <div class="input-field">
+                        <label for="signup-email">Wpisz adres email:</label>
+                        <input type="email" id="signup-email" required/>
+                        
+                    </div>
+                    <div class="input-field">
+                        <label for="signup-password">Wpisz hasło:</label>
+                        <input type="password" id="signup-password" required/>
+                    </div>
+                <button>Zarejestruj</button>
+                </form>
+            </div>
+            <span class="hide">X</span>
+        </div>
+
+        <!-- Log in -->
+        <div class="login-container">
+            <div class="login-wrapper">
+                <h3>Zaloguj się</h3>
+                <form id="login-form">
+                    <div class="input-field">
+                        <label for="login-email">Wpisz adres email:</label>
+                        <input type="email" id="login-email" required/>
+                        
+                    </div>
+                    <div class="input-field">
+                        <label for="login-password">Wpisz hasło:</label>
+                        <input type="password" id="login-password" required/>
+                    </div>
+                    <button>Zaloguj</button>
+                </form>
+            </div>
+            <span class="hide">X</span>
+        </div>
+
+        <main>
+            <img class="my-account-img" src="/img/myAccount.png" alt="SHH My Account logo"> <!--https://fontmeme.com/pokemon-font/-->
+            <div class="button-wrapper">
+                <button id="add-new-pokemon">Dodaj nowego pokémona do huntingu</button>
+                <button id="account-settings">Ustawienia konta</button>
+            </div>
+
+            <!-- Add new pokemon to hunt -->
+            <div class="new-pokemon-container">
+                <div class="new-pokekon-wrapper">
+                    <h3>Dodaj nowego pokémona do huntingu</h3>
+                    <form id="new-pokemon-form">
+                        <div class="select-field">
+                            <label for="pokemons-select">Wybierz pokémona: </label>
+                            <select name="pokemons" id="pokemons-select"></select>
+                        </div>
+                        <div class="select-field">
+                            <label for="games-select">Wybierz grę: </label>
+                            <select name="games" id="games-select"></select>
+                        </div>
+                        <div class="select-field">
+                            <label for="">Wybierz metodykę: </label>
+                            <select name="method" id="method">
+                                <option value="soft-resetting">Soft Resetting</option>
+                                <option value="random-encounter">Random Encounter</option>
+                                <option value="fossil-restores">Fossil Restores</option>
+                                <option value="evolving">Evolving</option>
+                                <option value="masuda-method">Masuda Method</option>
+                                <option value="egg-hatching">Egg Hatching</option>
+                                <option value="chain-fishing">Chain Fishing</option>
+                                <option value="friend-safari">Friend Safari</option>
+                                <option value="poke-radar">Poké Radar</option>
+                                <option value="poke-pelago">Poké Pélago</option>
+                                <option value="dex-nav">Dex Nav</option>
+                                <option value="horde-hunting">Horde Hunting</option>
+                                <option value="sos-calling">SOS Calling</option>
+                                <option value="island-scan">Island Scan</option>
+                                <option value="ultra-wormhole">Ultra Wormhole</option>
+                                <option value="run-away">Run Away</option>
+                                <option value="catch-combo">Catch Combo</option>
+                                <option value="raids">Raids</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    <button id="addPokemonButton">Dodaj</button>
+                    </form>
+                </div>
+                <span class="hide">X</span>
+            </div>
+
+            <!-- Account settings -->
+            <div class="account-settings-container">
+                <h3>Ustawienia konta:</h3>
+                <div class="account-settings-wrapper"></div>
+                <span class="hide">X</span>
+            </div>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; 2021. Wszystkie prawa zastrzeżone.</p>
+        </footer>
+
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/8.3.3/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/8.3.3/firebase-auth.js"></script> 
+        <script defer src="/__/firebase/8.3.3/firebase-firestore.js"></script>
+        <!-- initialize the SDK after all desired features are loaded, set useEmulator to false
+         to avoid connecting the SDK to running emulators.-->
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/index.js"></script>
+    </body>
+</html>
