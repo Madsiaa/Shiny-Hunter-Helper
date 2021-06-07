@@ -1,25 +1,47 @@
+//MANAGE LOGIN/OUT CONTAINERS
+const btnLogin = document.getElementById('login');
+const btnSingup = document.getElementById('signup');
+const btnCloseLogin = document.querySelector('.login-container span.hide');
+const btnCloseSingup = document.querySelector('.signup-container span.hide');
+
+btnLogin.addEventListener("click", function () {
+    document.querySelector('.login-container').classList.add('active');
+});
+
+btnSingup.addEventListener("click", function () {
+    document.querySelector('.signup-container').classList.add('active');
+});
+
+btnCloseLogin.addEventListener("click", function () {
+    document.querySelector('.login-container').classList.remove('active');
+});
+
+btnCloseSingup.addEventListener("click", function () {
+    document.querySelector('.signup-container').classList.remove('active');
+});
+
 //SIGN UP
-const singupForm = document.querySelector("#signup-form");
+const singupForm = document.getElementById("signup-form");
 singupForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const email = document.querySelector("form#signup-form input[id='signup-email']").value;
-    const password = document.querySelector("form#signup-form input[id='signup-password']").value;
+    const email = document.querySelector("#signup-form input[id='signup-email']").value;
+    const password = document.querySelector("#signup-form input[id='signup-password']").value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
-        firebase.firestore().collection("users").doc(userCredential.user.uid);
         alert("Konto zostało utworzone!");
         document.querySelector('.signup-container').classList.remove('active');
-      });
+    });
 });
 
 //LOGIN
-const loginForm = document.querySelector("#login-form");
+const loginForm = document.getElementById("login-form");
+
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const email = document.querySelector("form#login-form input[id='login-email']").value;
-    const password = document.querySelector("form#login-form input[id='login-password']").value;
+    const email = document.querySelector("#login-form input[id='login-email']").value;
+    const password = document.querySelector("#login-form input[id='login-password']").value;
 
     firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
         alert("Zalogowano!");
@@ -28,7 +50,8 @@ loginForm.addEventListener("submit", (e) => {
 });
 
 //LOGOUT
-const logout = document.querySelector("#logout");
+const logout = document.getElementById("logout");
+
 logout.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -61,7 +84,7 @@ function CheckStatus(){
             document.getElementById("signup").style.display = "block";
 
             //hide account info
-            accountDetails.innerHTML = " ";
+            accountDetails.innerHTML = "";
         }
     });
 }

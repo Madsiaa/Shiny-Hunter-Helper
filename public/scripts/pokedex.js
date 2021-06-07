@@ -1,5 +1,5 @@
 //CREATE & RENDER POKEDEX
-const pokedexTable = document.querySelector("#pokedex-table");
+const pokedexTable = document.getElementById("pokedex-table");
 function renderPokemonPokedex(doc){
     let tr = document.createElement("tr");
     let id = document.createElement("td");
@@ -31,19 +31,13 @@ function renderPokemonPokedex(doc){
 }
 
 //GET POKEMON DATA
-const refresh = document.querySelector('#refreshDB');
+const refresh = document.getElementById('refreshDB');
 refresh.addEventListener("click", (e) => {
     e.preventDefault();
-
+    
     firebase.firestore().collection("pokedex").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             renderPokemonPokedex(doc);
         });
     });
-});
-
-//ADD POKEMON TO HUNTING
-const confirmAndAdd = document.querySelector("#addPokemonButton");
-confirmAndAdd.addEventListener("click", () => {
-    let pokemon = document.querySelector("#pokemons-select").value;
 });
