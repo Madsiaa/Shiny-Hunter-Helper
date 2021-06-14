@@ -80,8 +80,9 @@ function renderPokemonList(doc){
     //let pokemonImage = document.createElement("img");
     let pokemonName = document.createElement("p");
     let method = document.createElement("p");
-    let status = document.createElement("p");
-    let encounterNumber = document.createElement("p");
+    let status = document.createElement("select");
+    let statusValue = document.createElement("p");
+    let encounterNumber = document.createElement("input");
     let gameName = document.createElement("p");
     //let gameImage = document.createElement("img");
     let button = document.createElement("button");
@@ -93,15 +94,20 @@ function renderPokemonList(doc){
     wrapper4.setAttribute("class", "game-wrapper");
     wrapper5.setAttribute("class", "button-wrapper");
     button.setAttribute("id", "update-db");
+    button.setAttribute("data-id", doc.id);
+    encounterNumber.setAttribute("type", "number");
+    encounterNumber.setAttribute("min", 0);
+    encounterNumber.setAttribute("value", doc.data().encounterNumber);
 
-    //pokemonImage.innerHTML     = '<img class="pokemon-image" src="/img/shinyPokemonSprite/" alt="pokemon image">';
-    pokemonName.textContent    = doc.data().pokemonName;
-    method.textContent   = doc.data().method;
-    status.textContent   = doc.data().status;
-    encounterNumber.textContent   = doc.data().encounterNumber;
-    gameName.textContent  = doc.data().gameName;
-    //gameImage.innerHTML     = '<img class="game-image" src="/img/gamesCover/" alt="pokemon image">';
-    button.textContent    = "Aktualizuj dane";
+    pokemonName.textContent      = doc.data().pokemonName;
+    //pokemonImage.innerHTML     = '<img class="pokemon-image" src="/img/shinyPokemonSprite/' + getPokemonImage(doc.data().pokemonName) + '" alt="pokemon image">';
+    method.textContent           = doc.data().method;
+    status.innerHTML             = "<option value='w-trakcie'>W trakcie</option><option value='złapany'>Złapany</option><option value='wstrzymany'>Wstrzymany</option><option value='anulowany'>Anulowany</option>";
+    gameName.textContent         = doc.data().gameName;
+    //gameImage.innerHTML        = '<img class="game-image" src="/img/gamesCover/" alt="pokemon image">';
+    button.textContent           = "Aktualizuj dane";
+
+    status.setAttribute("value", doc.data().status);
 
     //wrapper1.appendChild(pokemonImage);
     wrapper1.appendChild(pokemonName);
@@ -121,7 +127,6 @@ function renderPokemonList(doc){
     pokemonWrapper.appendChild(div);
 }
 
-
 //GET POKEMON ADDED TO HUNT DATA
 const renderPokemonListBtn = document.getElementById("show-pokemons");
 
@@ -134,4 +139,4 @@ renderPokemonListBtn.addEventListener("click", (e) => {
             renderPokemonList(doc);
         });
     });
-})
+});

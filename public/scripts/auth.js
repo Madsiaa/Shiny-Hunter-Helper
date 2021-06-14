@@ -65,7 +65,6 @@ const accountDetails = document.querySelector(".account-settings-wrapper");
 window.onload = CheckStatus;
 function CheckStatus(){
     firebase.auth().onAuthStateChanged(user => {
-        console.log(user);
         if(user){
             //show/hide nav links
             document.getElementById("login").style.display = "none";

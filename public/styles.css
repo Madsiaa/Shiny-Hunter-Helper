@@ -200,11 +200,21 @@ button#refreshDB {
 
 /*------------Moje konto-----------*/
 
-div.button-wrapper {
+div.button-wrapper1, div.button-wrapper2 {
     text-align: center;
 }
 
-button#add-new-pokemon, button#show-pokemons, button#account-settings {
+div.button-wrapper1 {
+    margin-bottom: 10px;
+}
+
+div.button-wrapper2 select {
+    padding: 9px 30px;
+    font-size: 0.8em;
+}
+
+button#add-new-pokemon, button#show-pokemons, 
+button#account-settings, button#update-db {
     display: inline-block;
     background-color: rgb(31, 92, 171);
     padding: 10px 15px;
@@ -215,6 +225,10 @@ button#add-new-pokemon, button#show-pokemons, button#account-settings {
     cursor: pointer;
 }
 
+button#account-settings {
+    margin-left: 25px;
+}
+
 button#show-pokemons {
     margin-right: 10px;
     margin-left: 10px;
@@ -222,6 +236,7 @@ button#show-pokemons {
 
 #pokemon-list-container {
     margin: 25px 150px;
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
   }
@@ -232,7 +247,8 @@ button#show-pokemons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid #999;
+    border: solid #ccc 1px;
+    box-shadow: 5px 3px 7px #aaa;
 }
 
 /*Sekcja dodawania Pokemona i ustawień*/
@@ -310,6 +326,17 @@ button#show-pokemons {
     line-height: 35px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.encounter-wrapper input {
+    padding: 10px 10px;
+    width: 150px;
+    font-size: 1.2em;
+}
+
+.method-wrapper select {
+    padding: 6px 30px;
+    font-size: 0.9em;
 }
 
 /*---------------Stopka------------*/

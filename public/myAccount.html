@@ -68,10 +68,19 @@
 
         <main>
             <img class="my-account-img" src="/img/myAccount.png" alt="SHH My Account logo"> <!--https://fontmeme.com/pokemon-font/-->
-            <div class="button-wrapper">
+            <div class="button-wrapper1">
                 <button id="add-new-pokemon">Dodaj nowego pokémona do huntingu</button>
-                <button id="show-pokemons">Pokaż pokémony</button>
                 <button id="account-settings">Ustawienia konta</button>
+            </div>
+            <div class="button-wrapper2">
+                <select name="filter">
+                    <option value="">Wybierz filtrowanie:</option>
+                    <option value='w-trakcie'>W trakcie</option>
+                    <option value='złapany'>Złapany</option>
+                    <option value='wstrzymany'>Wstrzymany</option>
+                    <option value='anulowany'>Anulowany</option>
+                </select>
+                <button id="show-pokemons">Pokaż pokémony</button>
             </div>
 
             <!-- Add new pokemon to hunt -->
